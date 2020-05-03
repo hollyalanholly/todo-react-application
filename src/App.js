@@ -1,14 +1,13 @@
 import React from 'react';
 import TaskItem from "./TaskItem/TaskItem"
+import HeaderToggle from "./headerToggle/HeaderToggle"
+import NewTodo from "./NewTodo/NewTodo"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>
-          Hello Holly!
-        </h1>
-      </header>
+      <HeaderToggle/>
+      <NewTodo/>
 
       <TaskItem text="feed Jeff"/>
       <TaskItem text ="drink Wine"/>

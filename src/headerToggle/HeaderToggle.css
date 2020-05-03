@@ -1,0 +1,15 @@
+.header-toggle {
+    width: 40%;
+    float: left;   
+    background-image: url(img/bkgd.png);
+}
+
+.btn-group {
+    float: left;
+}
+
+h1 {
+    color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 90px; 
+    font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+    float: left;        
+}

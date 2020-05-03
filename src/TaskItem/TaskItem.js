@@ -13,6 +13,3 @@ function TaskItem(props) {
 
 export default TaskItem;
 
-// props = {
-//     text: "Feed Jeff"
-// }
