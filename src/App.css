@@ -1,3 +1,5 @@
+
+
 .App {
   
     width: 100%;
@@ -7,7 +9,9 @@
 
 }
 
-
+.App, h3 {
+  background-color: paleturquoise;
+}
 
 .App-logo {
   height: 40vmin;
@@ -26,6 +30,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.item1 {
+  background-color: yellow;
 }
 
 @keyframes App-logo-spin {

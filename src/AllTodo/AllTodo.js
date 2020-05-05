@@ -1,7 +1,7 @@
 import React from 'react';
-import './TaskItem.css';
+import './AllTodo.css';
 
-function TaskItem(props) {
+function AllTodo(props) {
     return (
         
         <div className="task-item">
@@ -23,5 +23,4 @@ function TaskItem(props) {
     );
 }
 
-export default TaskItem;
-
+export default AllTodo;

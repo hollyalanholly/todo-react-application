@@ -5,9 +5,22 @@
     overflow-x: hidden; 
     }
     
-#todo {
-    width: 100%;
-    
-    
+
+.col-md-2 {
+    object-position: right;
 }
 
+#high {
+    background-color: coral;
+    color: black;
+}
+
+#medium {
+  background-color: rgba(192, 250, 158, 0.911);
+  color: black;
+}
+
+#low {
+  background-color: rgba(247, 191, 217, 0.911);
+  color:black;
+}

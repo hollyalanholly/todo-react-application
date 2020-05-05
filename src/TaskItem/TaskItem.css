@@ -1,18 +1,12 @@
 body {
     background-color: whitesmoke;
-    text-align: center;
+    text-align: left;
 }
 
 .task-item_text {
-    color: darkolivegreen;
+    color: black;
+    border-radius: 5px;
 }
 
-.task-item_done-button {
-    background-color: plum;
-    border-radius: 10px;
-}
 
-.task-item_delete-button {
-    background-color: plum;
-    border-radius: 10px;
-}
+
