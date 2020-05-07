@@ -4,7 +4,7 @@ import './AllTodoH.css';
 function AllTodoH() {
     return (
         
-        <h5>ALL FUTURE TODO's </h5>
+        <h3>ALL FUTURE TODO's </h3>
     );
 }
 

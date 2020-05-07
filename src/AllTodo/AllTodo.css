@@ -1,0 +1,11 @@
+.high {
+    background-color: lightcoral;
+  }
+  
+  .medium {
+    background-color: rgba(192, 250, 158, 0.911)
+  }
+  
+  .low {
+    background-color: rgba(247, 191, 217, 0.911);
+  }

@@ -3,7 +3,7 @@ import './DoneH.css';
 
 function DoneH() {
     return (  
-        <h5>ALL DONE! You smashed it!</h5>
+        <h3>ALL DONE! You smashed it!</h3>
     );
 }
 

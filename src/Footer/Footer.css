@@ -1,0 +1,15 @@
+.text-center{
+padding: 9px;
+background-color: lightgray;
+opacity: 80%;
+}
+
+footer {
+position: fixed;
+height: 40px;
+bottom: 0px;
+left: 0px;
+right: 0px;
+margin-bottom: 0px;
+
+}
