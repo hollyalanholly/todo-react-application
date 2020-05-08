@@ -3,6 +3,7 @@
     margin: 1px;
     padding: 1px;
     overflow-x: hidden; 
+    margin: 5px;
     }
     
 
@@ -23,4 +24,8 @@
 #low {
   background-color: rgba(247, 191, 217, 0.911);
   color:black;
+}
+
+form {
+  margin: 5px;
 }

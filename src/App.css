@@ -2,10 +2,11 @@
 
 .App {
   
-    width: 100%;
+    width: 90%;
     margin: 0 3em 0 3em;
-    padding: 0px;
+    padding: 0px 0px 50px 0px;
     overflow-x: hidden; 
+    
 
 }
 

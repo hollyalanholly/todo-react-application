@@ -9,3 +9,8 @@
   .low {
     background-color: rgba(247, 191, 217, 0.911);
   }
+
+  .doneColor {
+    background-color: rgb(105, 105, 105);
+    color: white;
+  }

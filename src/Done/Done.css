@@ -10,6 +10,6 @@ body {
     background-color: thistle;
 }
 
-.done_items {
-    background-color: whitesmoke;
+.done_item {
+    background-color: grey;
 }
