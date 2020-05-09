@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
     return (
-        <footer class="text-center">
+        <footer className="text-center">
             <p><a href="headerToggle/HeaderToggle.js"
                 // class="btn btn-primary btn-sm active"
                 // role="button" aria-pressed="true">

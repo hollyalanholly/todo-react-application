@@ -4,15 +4,15 @@ import './NewTodo.css';
 function NewTodo(props) {
     return (
         <form className="new-todo-container">
-            <div class="row">
+            <div className="row">
                 <div className='col-12'>
-                    <input type="text" class="form-control" placeholder="To do..." />
+                    <input type="text" className="form-control" placeholder="To do..." />
                 </div>
             </div><br></br>
 
             <div className="row">
                 <div className="col-12 col-md-4">
-                    <input id="due-date" type="date" class="form-control" placeholder="Due Date" />
+                    <input id="due-date" type="date" className="form-control" placeholder="Due Date" />
                 </div>
                 <div className='col-12 col-md-2'>
                     <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -23,7 +23,7 @@ function NewTodo(props) {
                     </select>
                 </div>
                 <div className='col-12 col-md-6'>
-                <button type="button" class="btn btn-secondary btn-sm btn-block">Add to-do</button>
+                <button type="button" className="btn btn-secondary btn-sm btn-block">Add to-do</button>
                 </div>
 
             </div><br></br>

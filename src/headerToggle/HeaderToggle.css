@@ -3,6 +3,10 @@
      width:100%;
 }
 
+.container {
+    width: 100%
+}
+
 .btn-group {
     float: left;
 } 
@@ -12,7 +16,6 @@ h1 {
     font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
     padding-bottom: 20px;     
 }
-
 
 
 .btn-group-toggle {

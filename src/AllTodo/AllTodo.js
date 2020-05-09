@@ -13,14 +13,14 @@ function AllTodo(props) {
                 </div>
                 <div className="col-4 col-md-2">
                     <div className={`task-item ${props.modifier}`}>
-                    <p>{props.date}</p>
+                    <p>{props.dueDate}</p>
                     </div>
                 </div>
                 <div className="col-2 col-md-1">
-                    <button type="button" class="btn btn-outline-dark btn-sm">Done</button>
+                    <button type="button" className="btn btn-outline-dark btn-sm">Done</button>
                 </div>
                 <div className="col-2 col-md-1">
-                    <button type="button" class="btn btn-outline-dark btn-sm">Delete</button>
+                    <button type="button" className="btn btn-outline-dark btn-sm">Delete</button>
                 </div>
             </div>
         </div >
