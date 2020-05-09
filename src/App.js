@@ -13,31 +13,27 @@ import Footer from "./Footer/Footer"
 function App() {
   // const tasks = useState() []; //what is that state
   // const setTasks =useState()[1]; //function allows me to update that state
-
   //Destructuring method, first thing we will store
-  //  in a variable called tasks, and second thing willbe stored in a variable called setTasks
-  const [ tasks, setTasks ] = useState([
-    {text: "Wash Alan", completed: false, dueDate:"2020-05-17", priority: "high"},
-    {text: "Find the cat", completed: false, dueDate:"2020-05-17", priority: "medium"},
-    {text: "Make a white Russian", completed: true, dueDate:"2020-05-11", priority: "high"}
+
+  const [tasks, SetTasks] = useState([
+    { text: "Wash Alan", completed: false, dueDate: "2020-05-17", priority: "high" },
+    { text: "Find the cat", completed: false, dueDate: "2020-05-17", priority: "medium" },
+    { text: "Make a white Russian", completed: true, dueDate: "2020-05-01", priority: "doneColor" },
+    { text: "Feed children", completed: true, dueDate: "2020-06-07", priority: "doneColor" },
+    { text: "Shave little shorts into Jeffery the cat", completed: false, dueDate: "2020-07-07", priority: "low"},
+    { text: "Eat Cheese", completed: true, dueDate: "2020-06-07", priority: "doneColor" },
+    { text: "Remove and cut up the entire back garden hedge", completed: true, dueDate: "2020-06-07", priority: "doneColor" },
+    { text: "Get into bin", completed: true, dueDate: "2020-06-07", priority: "doneColor" }
   ]);
 
-  const [ allTasks, allSetTasks ] = useState([
-    {text: "Wash Alan", completed: false, dueDate:"2020-05-17", priority: "high"},
-    {text: "Find the cat", completed: false, dueDate:"2020-05-17", priority: "medium"},
-    {text: "Make a white Russian", completed: true, dueDate:"2020-05-01", priority: "doneColor"},
-    {text: "Feed children", completed: true, dueDate:"2020-06-07", priority: "doneColor"},
-    {text: "Shave little shorts into Jeffery the cat", completed: false, dueDate:"2020-07-07", priority: "low"}
-  ]);
+  const twTasks = tasks.filter(task => !task.completed && task.dueDate < "2020-05-18");
+  // this weeks tasks so looking at if NOT DONE and in a certain date range
 
-  const activeTasks = tasks.filter(task =>!task.completed); 
-  //look through array and if the task if false keep it
-  
-  const allActiveTasks = allTasks.filter(allTasks =>!allTasks.completed); 
+  const allActiveTasks = tasks.filter(task => !task.completed);
   //look through array of ALLTASKS and if the task if false keep it
 
-  const doneTasks = allTasks.filter(allTasks =>allTasks.completed); 
-  
+  const doneTasks = tasks.filter(tasks => tasks.completed);
+
   return (
     <div className="Container">
       <div className="App">
@@ -50,38 +46,27 @@ function App() {
         <br></br>
         <ThisWeekH />
         <div>
-          {activeTasks.map((task) => <TaskItem key={ task.text } text={task.text} dueDate={task.dueDate} 
-          completed={ task.completed} priority={ task.priority}/>)}
+          {twTasks.map((tasks) => <TaskItem key={tasks.text} text={tasks.text} dueDate={tasks.dueDate}
+            completed={tasks.completed} priority={tasks.priority} />)}
           {/* <TaskItem text="feed Jeff" date="01/05/2020" modifier="high" />
-          <TaskItem text="drink Wine" date="04/05/2020" modifier="high" />
-          <TaskItem text="wash Alan" date="04/05/2020" modifier="low" />
-          <TaskItem text="feed children" date="08/05/2020" modifier="medium" />
           <TaskItem text="be fabulous" date="01/06/2020" modifier="medium" /> */}
         </div>
         <br></br>
         <br></br>
         <AllTodoH />
-        {allActiveTasks.map((allTasks) => <AllTodo key={ allTasks.text } text={allTasks.text} dueDate={allTasks.dueDate} 
-          completed={ allTasks.completed} priority={ allTasks.priority} />)}
-
+        {allActiveTasks.map((tasks) => <AllTodo key={tasks.text} text={tasks.text} dueDate={tasks.dueDate}
+          completed={tasks.completed} priority={tasks.priority} />)}
         <div>
-          {/* <AllTodo className="item1" text="feed Jeff" date="01/05/2020" modifier="high" />
-          <AllTodo text="drink Wine" date="04/05/2020" modifier="high" />
-          <AllTodo text="wash Alan" date="04/05/2020" modifier="low" />
-          <AllTodo text="feed children" date="08/05/2020" modifier="medium" />
-          <AllTodo text="be fabulous" date="01/06/2020" modifier="medium" />
-          <AllTodo text="shave little shorts into Jeffery the Cat" date="01/06/2020" modifier="low" />
+          {/* <AllTodo className="item1" text="feed Jeff" date="01/05/2020" modifier="high" />>
           <AllTodo text="eat some cheese" date="04/06/2020" modifier="low" /> */}
         </div>
         <br></br>
         <br></br>
-
         <DoneH />
         <div>
-          {/* <Done text="Change out of jogging bottoms" date="08/04/2020" modifier="doneColor"/>
-          <Done text="Eat an Easter Egg" date="01/05/2020" modifier="doneColor" /> */}
-           {doneTasks.map((allTasks) => <Done key={ allTasks.text } text={allTasks.text}  
-          completed={ allTasks.completed} priority={ allTasks.priority} />)}
+          {/* <Done text="Change out of jogging bottoms" date="08/04/2020" modifier="doneColor"/> */}
+          {doneTasks.map((allTasks) => <Done key={allTasks.text} text={allTasks.text}
+            completed={allTasks.completed} priority={allTasks.priority} />)}
         </div>
         <br></br>
         <br></br>
