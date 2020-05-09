@@ -1,0 +1,65 @@
+
+/* css about the header and toggle column */
+
+.header-toggle {
+    background-image: url(img/bkgd.png);
+    width:100%;
+}
+
+.container {
+   width: 100%
+}
+
+.btn-group {
+   float: left;
+} 
+
+h1 {
+   color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 90px; 
+   font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+   padding-bottom: 40px;     
+}
+
+
+.btn-group-toggle {
+   padding-bottom: 40px;
+   margin-left: 20px;
+}
+
+header {
+    background-color: rgb(209, 206, 206);
+}
+
+/* the new to do */
+
+.new-todo-container {
+    width: 100%;
+    margin: 1px;
+    padding: 1px;
+    overflow-x: hidden; 
+    margin: 5px;
+    }
+    
+
+.col-md-2 {
+    object-position: right;
+}
+
+#high {
+    background-color: coral;
+    color: black;
+}
+
+#medium {
+  background-color: rgba(192, 250, 158, 0.911);
+  color: black;
+}
+
+#low {
+  background-color: rgba(247, 191, 217, 0.911);
+  color:black;
+}
+
+form {
+  margin: 5px;
+}

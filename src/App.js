@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import Header from "./Header/Header"
 import TaskItem from "./TaskItem/TaskItem"
 import HeaderToggle from "./headerToggle/HeaderToggle"
 import NewTodo from "./NewTodo/NewTodo"
@@ -37,12 +38,7 @@ function App() {
   return (
     <div className="Container">
       <div className="App">
-        <div className="row">
-          <HeaderToggle />
-        </div>
-        <div className="row">
-          <NewTodo />
-        </div>
+        <Header />
         <br></br>
         <ThisWeekH />
         <div>
