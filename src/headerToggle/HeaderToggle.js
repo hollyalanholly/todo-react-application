@@ -3,7 +3,7 @@ import './HeaderToggle.css';
 
 function HeaderToggle(props) {
     return (
-        <div className="header-toggle">
+        <div className="container header-toggle">
             <div className="row header-toggle__row">
                 <div className="btn-group btn-group-toggle" data-toggle="buttons">
                     <label className="btn btn-secondary active">
