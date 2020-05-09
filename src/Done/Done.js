@@ -6,8 +6,8 @@ function Done(props) {
 
         <div className="task-item done-item">
             <div className="row">
-                <div className="col-12 col-md-8">
-                    <div className={`done-item ${props.modifier}`}>
+                <div className="col-9 col-md-9">
+                    <div className={`done-item ${props.priority}`}>
                         <p className="Done_text">{props.text}</p>
                     </div>
                 </div>
@@ -16,8 +16,8 @@ function Done(props) {
                         <p className="Done_text">{props.dueDate}</p>
                     </div>
                 </div> */}
-                <div className="col-1 col-md-1">
-                    <button type="button" className="btn btn-outline-dark btn-sm">Undo</button>
+                <div className="col-2 col-md-1">
+                <button type="button" class="btn btn-secondary">undo</button>
 
                 </div>  
             </div>

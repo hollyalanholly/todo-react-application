@@ -10,6 +10,6 @@ body {
     background-color: thistle;
 }
 
-.done_item {
-    background-color: grey;
-}
+.done-item {
+        background-color: rgb(209, 206, 206);
+      }
