@@ -1,17 +1,21 @@
 .high {
     background-color: lightcoral;
+    border-radius: 5px;
   }
   
   .medium {
-    background-color: rgba(192, 250, 158, 0.911)
+    background-color: rgba(192, 250, 158, 0.911);
+    border-radius: 5px;
   }
   
   .low {
     background-color: rgba(247, 191, 217, 0.911);
+    border-radius: 5px;
   }
 
   .doneColor {
     background-color: rgb(209, 206, 206);
+    border-radius: 5px;
     color: black;
   }
 

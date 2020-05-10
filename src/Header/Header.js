@@ -2,32 +2,42 @@ import React from 'react';
 import './Header.css';
 
 function Header(props) {
+
+    const date = new Date().toDateString();
+
     return (
         <header>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg col-lg-5 header-toggle">
+
+            <div className="container-fluid">
+                <div className="row">
+
+                    <div className="col-lg col-lg-5 header-toggle">
 
                         <div className="row header-toggle__row">
                             <div className="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label className="btn btn-secondary active">
                                     <input type="radio" name="options" id="option1" /> All to'do's
-                            </label>
+                                </label>
                                 <label className="btn btn-secondary">
                                     <input type="radio" name="options" id="option2" checked />This wk to-do's
-                            </label>
+                                </label>
                             </div>
                             <br></br>
                         </div>
 
-                        <div className="row2">
+                        <div className="row-2">
                             <h1> Holly's Mega
                             To-do List</h1><br></br>
                         </div>
 
+                        <div className="row-date">
+                            <h2><strong>{date}</strong></h2><br></br>
+                        </div>
+
+
                     </div>
 
-                    <div class="col-lg col-lg-7">
+                    <div className="col-lg col-lg-7">
                         <form className="new-todo-container">
                             <div className="row">
                                 <div className='col-12'>
@@ -53,7 +63,9 @@ function Header(props) {
 
                             </div><br></br>
                         </form >
+
                     </div>
+
 
                 </div>
             </div>

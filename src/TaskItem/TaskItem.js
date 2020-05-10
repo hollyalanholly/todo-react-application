@@ -3,7 +3,6 @@ import './TaskItem.css';
 
 function TaskItem(props) {
     return (
-
         <div className="task-item ">
             <div className="row">
                 <div className="col-12 col-md-8">
@@ -25,7 +24,7 @@ function TaskItem(props) {
                 </div>
                 
             </div>
-        </div >
+        </div>
     );
 }
 
