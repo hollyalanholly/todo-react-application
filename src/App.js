@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Header from "./Header/Header"
+import Header from "./Header/header"
 import TaskItem from "./TaskItem/TaskItem"
 import HeaderToggle from "./headerToggle/HeaderToggle"
 import NewTodo from "./NewTodo/NewTodo"

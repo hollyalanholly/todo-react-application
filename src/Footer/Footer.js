@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
     return (
         <footer className="text-center">
-                <p><a href="Header/Header.js">
+                <p><a href="Header/header.js">
                     Nip back to the top of the page</a></p>
         </footer>
 
