@@ -13,3 +13,18 @@ body {
 .done-item {
         background-color: rgb(209, 206, 206);
       }
+
+      @media only screen and (min-width: 600px) {
+        .done-item {
+          background-color:yellow;
+          }
+      }
+
+      @media only screen and (min-width: 1200px) {
+        .done-item {
+          background-color:rgb(209, 206, 206);
+          }
+      }
+      
+       
+      

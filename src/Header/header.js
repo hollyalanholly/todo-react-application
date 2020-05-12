@@ -11,7 +11,7 @@ function Header(props) {
             <div className="container-fluid">
                 <div className="row">
 
-                    <div className="col-lg col-lg-5 header-toggle">
+                    <div className="col-lg col-lg-5 header-toggle" id="header">
 
                         <div className="row header-toggle__row">
                             <div className="btn-group btn-group-toggle" data-toggle="buttons">
@@ -41,15 +41,18 @@ function Header(props) {
                         <form className="new-todo-container">
                             <div className="row">
                                 <div className='col-12'>
-                                    <input type="text" className="form-control" placeholder="To do..." />
+                                    <input type="text" className="form-control input-lg" placeholder="To do..." />
                                 </div>
                             </div><br></br>
 
                             <div className="row">
-                                <div className="col-12 col-md-4">
+                                <div className="col-12 col-md-5">
                                     <input id="due-date" type="date" className="form-control" placeholder="Due Date" />
                                 </div>
-                                <div className='col-12 col-md-2'>
+                            </div>
+                            <br></br>
+                            <div className="row">
+                                <div className='col-12 col-md-5'>
                                     <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                         <option selected>Priority...</option>
                                         <option id="high" value="1">High</option>
@@ -57,11 +60,14 @@ function Header(props) {
                                         <option id="low" value="3">Low</option>
                                     </select>
                                 </div>
-                                <div className='col-12 col-md-6'>
-                                    <button type="button" className="btn btn-secondary btn-sm btn-block">Add to-do</button>
-                                </div>
 
                             </div><br></br>
+
+                            <div className="row">
+                            <div className='col-12 col-md-5 add-button__column'>
+                                    <button type="button" className="btn btn-secondary btn-sm btn-block">Add to-do</button>
+                                </div>
+                            </div>
                         </form >
 
                     </div>

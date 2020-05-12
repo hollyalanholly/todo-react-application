@@ -1,5 +1,5 @@
 import React from 'react';
-import './AllTodoH.css';
+
 
 function AllTodoH() {
     return (

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
+
 import Header from "./Header/header"
 import TaskItem from "./TaskItem/TaskItem"
-import HeaderToggle from "./headerToggle/HeaderToggle"
-import NewTodo from "./NewTodo/NewTodo"
 import ThisWeekH from "./ThisWeekH/ThisWeekH"
 import AllTodo from "./AllTodo/AllTodo"
 import AllTodoH from "./AllTodoH/AllTodoH"
 import Done from "./Done/Done"
 import DoneH from "./DoneH/DoneH"
 import Footer from "./Footer/Footer"
+
 
 function App() {
   // const tasks = useState() []; //what is that state

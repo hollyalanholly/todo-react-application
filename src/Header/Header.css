@@ -4,6 +4,7 @@
 .header-toggle {
     background-image: url(img/bkgd.png);
     width:100%;
+    
 }
 
 .container {
@@ -15,7 +16,7 @@
 } 
 
 h1 {
-   color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; 
+   color: black; font-family: 'Helvetica Neue', sans-serif; font-size: 110px; 
    font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;    
 }
 
@@ -30,7 +31,6 @@ h2 {
   opacity: 0.5;
 }
 
-
 .row-date{
 text-align: center;
 }
@@ -41,14 +41,9 @@ text-align: center;
     margin: 1px;
     padding: 1px;
     overflow-x: hidden; 
-    margin: 5px;
+    margin: 1px;
     }
     
-
-.col-md-2 {
-    object-position: right;
-}
-
 #high {
     background-color: coral;
     color: black;
@@ -67,4 +62,20 @@ text-align: center;
 form {
   margin: 5px;
 }
+
+/* trying to add some @medias in here */
+
+
+
+@media only screen and (min-width: 400px) {
+  body {
+    background-color:yellow;
+    }
+}
+
+  @media only screen and (min-width: 600px) {
+    body {
+      background-color:red;
+      }
+    }
 
