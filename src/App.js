@@ -19,6 +19,7 @@ function App() {
   const [tasks, SetTasks] = useState([
     { text: "Wash Alan", completed: false, dueDate: "2020-05-17", priority: "high" },
     { text: "Find the cat", completed: false, dueDate: "2020-05-17", priority: "medium" },
+    { text: "Take a secret nap", completed: false, dueDate: "2020-05-07", priority: "low" },
     { text: "Make a white Russian", completed: true, dueDate: "2020-05-01", priority: "doneColor" },
     { text: "Feed children", completed: true, dueDate: "2020-06-07", priority: "doneColor" },
     { text: "Shave little shorts into Jeffery the cat", completed: false, dueDate: "2020-07-07", priority: "low"},
@@ -27,7 +28,16 @@ function App() {
     { text: "Get into bin", completed: true, dueDate: "2020-06-07", priority: "doneColor" }
   ]);
 
-  const twTasks = tasks.filter(task => !task.completed && task.dueDate < "2020-05-18");
+  //making a variable that tells us the date of the last day of this week
+  let today = new Date(); //this is todays date and time
+  let first = today.getDate() - today.getDay()+1; // First day is the day of the month - the day of the week
+  let last = first + 6; // last day is the first day + 6
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();//year in 4 digit format
+  let lastDayOfWeek = yyyy +"-" + mm + "-"+last;
+
+
+  const twTasks = tasks.filter(task => !task.completed && task.dueDate <= lastDayOfWeek);
   // this weeks tasks so looking at if NOT DONE and in a certain date range
 
   const allActiveTasks = tasks.filter(task => !task.completed);
