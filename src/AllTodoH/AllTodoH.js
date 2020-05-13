@@ -4,7 +4,7 @@ import React from 'react';
 function AllTodoH() {
     return (
         
-        <h3>ALL FUTURE TODO's </h3>
+        <h3>ALL FUTURE to-do's </h3>
     );
 }
 

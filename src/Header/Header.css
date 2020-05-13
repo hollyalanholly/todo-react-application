@@ -92,29 +92,47 @@ h2 {
 @media only screen and (min-width: 570px) {
  
     h1 {
-      font-size: 90px;
+      font-size: 80px;
       }  
       h2 {
         font-size: 30px;
        } 
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 670px) {
+ 
+  h1 {
+    font-size: 100px;
+    }  
+    h2 {
+      font-size: 30px;
+     } 
+}
+
+@media only screen and (min-width: 992px) {
+ 
+  h1 {
+    font-size: 60px;
+    }  
+   
+}
+
+@media only screen and (min-width: 1065px) {
     h1 {
-      font-size: 120px;
+      font-size: 60px;
       }  
 
 }
 
-@media only screen and (min-width: 991px) {
+@media only screen and (min-width: 1355px) {
     h1 {
       font-size: 90px;
       }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1650px) {
     h1 {
-      font-size: 130px;
+      font-size: 110px;
       }
 }
 

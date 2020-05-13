@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import Header from "./Header/header"
 import TaskItem from "./TaskItem/TaskItem"
+import NextWeek from "./NextWeek/NextWeek"
 import ThisWeekH from "./ThisWeekH/ThisWeekH"
 import AllTodo from "./AllTodo/AllTodo"
 import AllTodoH from "./AllTodoH/AllTodoH"
@@ -19,25 +20,41 @@ function App() {
   const [tasks, SetTasks] = useState([
     { text: "Wash Alan", completed: false, dueDate: "2020-05-17", priority: "high" },
     { text: "Find the cat", completed: false, dueDate: "2020-05-17", priority: "medium" },
-    { text: "Take a secret nap", completed: false, dueDate: "2020-05-07", priority: "low" },
+    { text: "Take a secret nap", completed: false, dueDate: "2020-05-24", priority: "low" },
     { text: "Make a white Russian", completed: true, dueDate: "2020-05-01", priority: "doneColor" },
     { text: "Feed children", completed: true, dueDate: "2020-06-07", priority: "doneColor" },
     { text: "Shave little shorts into Jeffery the cat", completed: false, dueDate: "2020-07-07", priority: "low"},
     { text: "Eat Cheese", completed: true, dueDate: "2020-06-07", priority: "doneColor" },
     { text: "Remove and cut up the entire back garden hedge", completed: true, dueDate: "2020-06-07", priority: "doneColor" },
-    { text: "Get into bin", completed: true, dueDate: "2020-06-07", priority: "doneColor" }
+    { text: "Get into bin", completed: true, dueDate: "2020-06-07", priority: "doneColor" },
+    { text: "Buy a reciprocal saw", completed: false, dueDate: "2020-04-29", priority: "medium" },
+    { text: "Paint woodwork", completed: false, dueDate: "2020-07-29", priority: "low" },
   ]);
 
-  //making a variable that tells us the date of the last day of this week
+  //making a variable that tells us the date of the last day of THIS week
   let today = new Date(); //this is todays date and time
   let first = today.getDate() - today.getDay()+1; // First day is the day of the month - the day of the week
   let last = first + 6; // last day is the first day + 6
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();//year in 4 digit format
-  let lastDayOfWeek = yyyy +"-" + mm + "-"+last;
+  let firstday = new Date(today.setDate(first)); 
+  let lastday = new Date(today.setDate(today.getDate()+6));
+  let dd =String(lastday.getDate()).padStart(2, '0');
+  let mm = String(lastday.getMonth() + 1).padStart(2, '0'); //January is 0!
+  let yyyy =lastday.getFullYear(); 
+  let lastDayOfWeek = yyyy +"-" + mm + "-"+dd;
+
+  //making a variable to tell us the date of the last day of NEXT week
+  let lastdayNW = new Date(today.setDate(today.getDate()+13));
+  let ddNW =String(lastdayNW.getDate()).padStart(2, '0');
+  let mmNW = String(lastdayNW.getMonth() + 1).padStart(2, '0'); 
+  let yyyyNW =lastdayNW.getFullYear(); 
+  let lastDayOfWeekNW = yyyyNW +"-" + mmNW + "-"+ddNW;
 
 
   const twTasks = tasks.filter(task => !task.completed && task.dueDate <= lastDayOfWeek);
+  // this weeks tasks so looking at if NOT DONE and in a certain date range
+
+  const nwTasks = tasks.filter(task => !task.completed && task.dueDate > lastDayOfWeek 
+    && task.dueDate<=lastDayOfWeekNW);
   // this weeks tasks so looking at if NOT DONE and in a certain date range
 
   const allActiveTasks = tasks.filter(task => !task.completed);
@@ -56,6 +73,13 @@ function App() {
             completed={tasks.completed} priority={tasks.priority} />)}
           {/* <TaskItem text="feed Jeff" date="01/05/2020" modifier="high" />
           <TaskItem text="be fabulous" date="01/06/2020" modifier="medium" /> */}
+        </div>
+        <br></br>
+        <br></br>
+        <h3>NEXT WEEK's to-do's</h3>
+        <div>
+          {nwTasks.map((tasks) => <NextWeek key={tasks.text} text={tasks.text} dueDate={tasks.dueDate}
+            completed={tasks.completed} priority={tasks.priority} />)}
         </div>
         <br></br>
         <br></br>
