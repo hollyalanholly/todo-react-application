@@ -9,8 +9,11 @@ body {
 }
 
 .task-item {
-    margin: 0px 5px 0px 5px;
+    width: 100%;
 }
 
+.form-control {
+    margin: 4px;
+}
 
 

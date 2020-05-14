@@ -6,7 +6,7 @@ function Done(props) {
 
         <div className="task-item done-item">
             <div className="row">
-                <div className="col-9 col-md-11">
+                <div className="col-9 col-md-9">
                     <div className={`done-item ${props.priority}`}>
                         <p className="Done_text">{props.text}</p>
                     </div>
