@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {Fragmnet, useState} from 'react';
 import './NewTodo.css';
 
 function NewTodo(props) {
+
+    const [text, setText] = useState("");
+    const[dueDate, setDueDate] = useState("");
+
+    function handleTextChange(event) {
+        setText(event.target.value);
+    }
+
     return (
+        <Fragment>
         <form className="new-todo-container">
             <div className="row">
                 <div className='col-12'>
-                    <input type="text" className="form-control" placeholder="To do..." />
+                    <input type="text" 
+                    className="form-control" 
+                    placeholder="To do..." 
+                    onChange={handleTextChange}
+                    value={text}
+                    />
                 </div>
             </div><br></br>
 
@@ -23,11 +37,14 @@ function NewTodo(props) {
                     </select>
                 </div>
                 <div className='col-12 col-md-6'>
-                <button type="button" className="btn btn-secondary btn-sm btn-block">Add to-do</button>
+                <button 
+                type="button" 
+                className="btn btn-secondary btn-sm btn-block">Add to-do</button>
                 </div>
 
             </div><br></br>
         </form >
+        </Fragment>
 
     );
 }
