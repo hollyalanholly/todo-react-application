@@ -17,7 +17,7 @@ function Done(props) {
                     </div>
                 </div> */}
                 <div className="col-2 col-md-1">
-                <button type="button" className="btn btn-secondary">undo</button>
+                <button type="button" className="btn btn-outline-dark">undo</button>
 
                 </div>  
             </div>

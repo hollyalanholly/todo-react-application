@@ -13,9 +13,9 @@ function AllTodo(props) {
                     <input id="due-date" type="date" className="form-control" value={props.dueDate} />
                 </div>
                 <div className="col-6 col-md-3">
-                <button type="button" className="btn btn-secondary">done</button>
+                <button type="button" className="btn btn-outline-dark">done</button>
  
-                <button type="button" className="btn btn-secondary">delete</button>
+                <button type="button" className="btn btn-outline-dark">delete</button>
                 </div>
             </div>
         </div >
