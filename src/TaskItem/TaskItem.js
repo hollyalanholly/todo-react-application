@@ -2,6 +2,7 @@ import React from 'react';
 import './TaskItem.css';
 
 function TaskItem(props) {
+
     return (
         <div className={`task-item ${props.priority}`}>
             <div className="row">
@@ -12,8 +13,10 @@ function TaskItem(props) {
                         <input id="due-date" type="date" className="form-control" value={props.dueDate} />
                 </div>
                 <div className="col-6 col-md-3">
-                    {props.completed === false && <button type="button" className="btn btn-outline-dark">done</button>}
-                    <button type="button" className="btn btn-outline-dark">delete</button>
+                    {props.completed === false && <button type="button" className="btn btn-outline-dark"
+                    onClick={ () =>props.completedTask(props.id)}> done</button>}
+                    <button type="button" className="btn btn-outline-dark" 
+                    onClick={ () =>props.deleteTask(props.id)}> delete </button>
             </div>
         </div>
         </div >
