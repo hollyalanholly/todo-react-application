@@ -33,6 +33,16 @@ h2 {
 .row-date{
 text-align: center;
 }
+
+.btn.btn-secondary.toggler {
+  margin:0px;
+}
+
+.btn {
+  margin:4px;
+}
+
+
 /* the new to do */
 
 .new-todo-container {

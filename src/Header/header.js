@@ -15,13 +15,13 @@ function Header(props) {
 
                         <div className="row header-toggle__row">
                             <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label className="btn btn-secondary active">
+                                <label className="btn btn-secondary toggler active">
                                     <input type="radio" name="options" id="option1" /> All to'do's
                                 </label>
-                                <label className="btn btn-secondary">
+                                <label className="btn btn-secondary toggler">
                                     <input type="radio" name="options" id="option2" />Next wk to-do's
                                 </label>
-                                <label className="btn btn-secondary">
+                                <label className="btn btn-secondary toggler">
                                     <input type="radio" name="options" id="option2" checked />This wk to-do's
                                 </label>
                             </div>
