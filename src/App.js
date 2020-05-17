@@ -18,6 +18,8 @@ function App() {
   //Destructuring method, first thing we will store
 
   const [tasks, setTasks] = useState([
+    { text: "Look up isBefore and momentjs.com", completed: false, dueDate: "2020-05-20", priority: "high", id: uuidv4() },
+    { text: "try and order you lists by date", completed: false, dueDate: "2020-05-20", priority: "high", id: uuidv4() },
     { text: "Wash Alan", completed: false, dueDate: "2020-05-17", priority: "high", id: uuidv4() },
     { text: "Find the cat", completed: false, dueDate: "2020-05-17", priority: "medium", id: uuidv4() },
     { text: "Take a secret nap", completed: false, dueDate: "2020-05-24", priority: "low", id: uuidv4() },
@@ -75,11 +77,12 @@ function App() {
     //look through all tasks and find where task.id===id, 
     //if it is change completed: true
     //if it IS then add to updated task state
-    const updatedTasks = tasks.map(task=> {
-      if(task.id===id) {
-        task.completed=true;
+    const updatedTasks = tasks.map(task => {
+      if (task.id === id) {
+        task.completed = true;
       }
-      return task;})
+      return task;
+    })
 
     setTasks(updatedTasks);
   }
@@ -93,7 +96,7 @@ function App() {
         <div>
           {twTasks.map((tasks) => {
             return <TaskItem
-              deleteTask ={deleteTask}
+              deleteTask={deleteTask}
               completeTask={completeTask}
               key={tasks.text}
               text={tasks.text}
@@ -101,7 +104,7 @@ function App() {
               completed={tasks.completed}
               priority={tasks.priority}
               id={tasks.id} />
-            })}
+          })}
           {/* <TaskItem text="feed Jeff" date="01/05/2020" modifier="high" />
           <TaskItem text="be fabulous" date="01/06/2020" modifier="medium" /> */}
         </div>
@@ -110,30 +113,30 @@ function App() {
         <h3>NEXT WEEK's to-do's</h3>
         <div>
           {nwTasks.map((tasks) => {
-          return <NextWeek
-          deleteTask ={deleteTask}
-          completeTask={completeTask}
-          key={tasks.text} 
-          text={tasks.text} 
-          dueDate={tasks.dueDate}
-          completed={tasks.completed} 
-          priority={tasks.priority} 
-          id={tasks.id} />
+            return <NextWeek
+              deleteTask={deleteTask}
+              completeTask={completeTask}
+              key={tasks.text}
+              text={tasks.text}
+              dueDate={tasks.dueDate}
+              completed={tasks.completed}
+              priority={tasks.priority}
+              id={tasks.id} />
           })}
         </div>
         <br></br>
         <br></br>
         <AllTodoH />
         {allActiveTasks.map((tasks) => {
-        return <AllTodo 
-        deleteTask ={deleteTask}
-        completeTask={completeTask}
-        key={tasks.text} 
-        text={tasks.text} 
-        dueDate={tasks.dueDate}
-        completed={tasks.completed} 
-        priority={tasks.priority} 
-        id={tasks.id} />
+          return <AllTodo
+            deleteTask={deleteTask}
+            completeTask={completeTask}
+            key={tasks.text}
+            text={tasks.text}
+            dueDate={tasks.dueDate}
+            completed={tasks.completed}
+            priority={tasks.priority}
+            id={tasks.id} />
         })}
         <div>
           {/* <AllTodo className="item1" text="feed Jeff" date="01/05/2020" modifier="high" />>
@@ -144,15 +147,14 @@ function App() {
         <DoneH />
         <div>
           {/* <Done text="Change out of jogging bottoms" date="08/04/2020" modifier="doneColor"/> */}
-          {doneTasks.map((allTasks) => {
-          return <Done 
-          deleteTask ={deleteTask}
-          completedTask={completeTask}
-          key={allTasks.text} 
-          text={allTasks.text}
-          completed={allTasks.completed} 
-          priority={allTasks.priority} 
-          id={tasks.id} />
+          {doneTasks.map((tasks) => {
+            return <Done
+              deleteTask={deleteTask}
+              key={tasks.text}
+              text={tasks.text}
+              completed={tasks.completed}
+              priority={tasks.priority}
+              id={tasks.id} />
           })}
         </div>
         <br></br>

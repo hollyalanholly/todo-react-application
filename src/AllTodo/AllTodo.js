@@ -9,10 +9,10 @@ function AllTodo(props) {
                 <div className="col-12 col-md-8">
                     <p>{props.text}</p>   
                 </div>
-                <div className="col-6 col-md-2 dateBox">
+                <div className="col-12 col-md-2 dateBox">
                     <input id="due-date" type="date" className="form-control" value={props.dueDate} />
                 </div>
-                <div className="col-6 col-md-2 doneDeleteButtons">
+                <div className="col-12 col-md-2 doneDeleteButtons">
                 <button 
                 type="button" 
                 className="btn btn-outline-dark"
