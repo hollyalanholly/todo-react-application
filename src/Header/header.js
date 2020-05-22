@@ -10,6 +10,7 @@ function Header(props) {
     //calling ("") as there may be nothing written in input TODO box yet
     const [text, setText] = useState("");
     const [dueDate, setDueDate] = useState("");
+    const [priority, setPriority] = useState("");
 
     //onChange is used so everytime the text input field changes react will update this STATE
     function handleTextChange(event) {
@@ -20,10 +21,15 @@ function Header(props) {
         setDueDate(event.target.value);
     }
 
-    function handleAddTaskClick() {
-        props.addTask(text, dueDate);
+    function handlePriority(event) {
+        setPriority(event.target.value);
     }
 
+    function handleAddTaskClick() {
+        props.addTask(text, dueDate, priority);
+    }
+
+    
     return (
         <Fragment>
             <header>
@@ -87,7 +93,11 @@ function Header(props) {
                                 <br></br>
                                 <div className="row">
                                     <div className='col-12 col-md-5'>
-                                        <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <select 
+                                        className="custom-select mr-sm-2" 
+                                        id="inlineFormCustomSelect"
+                                        onChange={handlePriority}
+                                        value={priority}>
                                             <option defaultValue>Priority...</option>
                                             <option id="high" value="1">High</option>
                                             <option id="medium" value="2">Medium</option>
