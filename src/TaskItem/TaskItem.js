@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 //fragemnt is an invisable div
 import './TaskItem.css';
 
@@ -6,7 +6,6 @@ function TaskItem(props) {
 
     function handleDoneClick() {
         // console.log('The done button has been clicked!');
-        // console.log(props.id);
         props.completeTask(props.id);
     }
 
@@ -17,7 +16,7 @@ function TaskItem(props) {
                     <p>{props.text}</p>
                 </div>
                 <div className="col-12 col-md-2 dateBox">
-                    <input id="due-date" type="date" className="form-control" value={props.dueDate} />
+                    <input id="due-date" type="date" className="form-control" defaultValue={props.dueDate} />
                 </div>
                 <div className="col-12 col-md-2 doneDeleteButtons">
                     {!props.completed &&

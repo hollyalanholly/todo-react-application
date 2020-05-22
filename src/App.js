@@ -87,10 +87,26 @@ function App() {
     setTasks(updatedTasks);
   }
 
+  function addTask(text, dueDate) {
+    //get a copy of the tasks that are akready there
+    //add a new task into this array
+    //update the task state
+    const newTask = { 
+      text: text, 
+      completed: false, 
+      dueDate: dueDate, 
+      priority: "low", 
+      id: uuidv4() 
+    }
+    //using a spread syntax to go through wach task and the new tasks
+    const updatedTasks = [...tasks, newTask]
+    setTasks(updatedTasks);
+  }
+
   return (
     <div className="Container">
       <div className="App">
-        <Header />
+        <Header addTask={ addTask }/>
         <br></br>
         <ThisWeekH />
         <div>

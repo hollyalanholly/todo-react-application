@@ -13,5 +13,3 @@ function Footer() {
 
 
 export default Footer;
-
-{/* <a href="https://<user.name>.github.io/<repo.name>/about.html" title="About Me">About Me</a> */}
