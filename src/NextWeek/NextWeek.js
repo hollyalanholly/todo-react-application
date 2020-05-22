@@ -9,7 +9,7 @@ function NextWeek(props) {
                     <p>{props.text}</p>
                 </div>
                 <div className="col-12 col-md-2 dateBox">
-                    <input id="due-date" type="date" className="form-control" value={props.dueDate} />
+                    <input id="due-date" type="date" className="form-control" defaultValue={props.dueDate} />
                 </div>
                 <div className="col-12 col-md-2 doneDeleteButtons">
                     <button 

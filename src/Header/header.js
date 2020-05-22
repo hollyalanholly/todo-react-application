@@ -48,7 +48,7 @@ function Header(props) {
                                         <input type="radio" name="options" id="option2" />Next wk to-do's
                                 </label>
                                     <label className="btn btn-secondary toggler">
-                                        <input type="radio" name="options" id="option2" checked />This wk to-do's
+                                        <input type="radio" name="options" id="option2" defaultChecked />This wk to-do's
                                 </label>
                                 </div>
                                 <br></br>
@@ -99,9 +99,9 @@ function Header(props) {
                                         onChange={handlePriority}
                                         value={priority}>
                                             <option defaultValue>Priority...</option>
-                                            <option id="high" value="1">High</option>
-                                            <option id="medium" value="2">Medium</option>
-                                            <option id="low" value="3">Low</option>
+                                            <option id="high" value="high">High</option>
+                                            <option id="medium" value="medium">Medium</option>
+                                            <option id="low" value="low">Low</option>
                                         </select>
                                     </div>
 

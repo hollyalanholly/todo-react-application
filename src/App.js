@@ -101,6 +101,7 @@ function App() {
     //using a spread syntax to go through wach task and the new tasks
     const updatedTasks = [...tasks, newTask]
     setTasks(updatedTasks);
+    console.log(updatedTasks);
   }
 
   return (
@@ -121,8 +122,6 @@ function App() {
               priority={tasks.priority}
               id={tasks.id} />
           })}
-          {/* <TaskItem text="feed Jeff" date="01/05/2020" modifier="high" />
-          <TaskItem text="be fabulous" date="01/06/2020" modifier="medium" /> */}
         </div>
         <br></br>
         <br></br>
