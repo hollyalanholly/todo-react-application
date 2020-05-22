@@ -33,6 +33,11 @@ function App() {
     { text: "Paint woodwork", completed: false, dueDate: "2020-07-29", priority: "low", id: uuidv4() }
   ]);
 
+  //trying to get dates to be sorted in order has to be here else it does not sort the original state above.
+  tasks.sort(function(a,b){
+    return new Date(a.dueDate) - new Date(b.dueDate);
+  });
+
   //making a variable that tells us the date of the last day of THIS week
   let today = new Date(); //this is todays date and time
   let first = today.getDate() - today.getDay() + 1; // First day is the day of the month - the day of the week
@@ -101,9 +106,13 @@ function App() {
     //using a spread syntax to go through wach task and the new tasks
     const updatedTasks = [...tasks, newTask]
     setTasks(updatedTasks);
-    console.log(updatedTasks);
   }
 
+  
+
+
+
+ 
   return (
     <div className="Container">
       <div className="App">
@@ -154,14 +163,11 @@ function App() {
             id={tasks.id} />
         })}
         <div>
-          {/* <AllTodo className="item1" text="feed Jeff" date="01/05/2020" modifier="high" />>
-          <AllTodo text="eat some cheese" date="04/06/2020" modifier="low" /> */}
         </div>
         <br></br>
         <br></br>
         <DoneH />
         <div>
-          {/* <Done text="Change out of jogging bottoms" date="08/04/2020" modifier="doneColor"/> */}
           {doneTasks.map((tasks) => {
             return <Done
               deleteTask={deleteTask}
