@@ -9,7 +9,7 @@ function Header(props) {
     //telling react that some text/date will be inputted and we need to keep track of and use that text/date.
     //calling ("") as there may be nothing written in input TODO box yet
     const [text, setText] = useState("");
-    const [dueDate, setDueDate] = useState("");
+    const [currentDueDate, setCurrentDueDate] = useState("");
     const [priority, setPriority] = useState("");
 
     //onChange is used so everytime the text input field changes react will update this STATE
@@ -18,7 +18,7 @@ function Header(props) {
     }
 
     function handleDateChange(event) {
-        setDueDate(event.target.value);
+        setCurrentDueDate(event.target.value);
     }
 
     function handlePriority(event) {
@@ -26,7 +26,7 @@ function Header(props) {
     }
 
     function handleAddTaskClick() {
-        props.addTask(text, dueDate, priority);
+        props.addTask(text, currentDueDate, priority);
     }
 
     
@@ -87,7 +87,7 @@ function Header(props) {
                                             className="form-control"
                                             placeholder="Due Date"
                                             onChange={handleDateChange}
-                                            value={dueDate} />
+                                            value={currentDueDate} />
                                     </div>
                                 </div>
                                 <br></br>

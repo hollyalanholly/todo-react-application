@@ -18,21 +18,18 @@ function TaskItem(props) {
                 <div className="col-12 col-md-8">
                     <p>{props.text}</p>
                 </div>
-                <div className="col-12 col-md-2 dateBox">
-                    <input 
-                    id="due-date" 
-                    type="date" 
-                    className="form-control" 
-                    defaultValue={props.currentDueDate}
-                    />
+                <div className="col-12 col-md-2">
+                
+                   <p>{props.currentDueDate}</p>
+                   
                 </div>
                 <div className="col-12 col-md-2 doneDeleteButtons">
-                <button
+                {/* <button
                         type="button"
                         className="btn btn-outline-dark"
                         defaultValue={props.currentDueDate}
                         onChange={handleDateChange}
-                        > change date </button>
+                        > change date </button> */}
                     {!props.completed &&
                         <button
                             type="button"

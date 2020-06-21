@@ -65,39 +65,34 @@ function App() {
   //look through array of ALLTASKS and if the task if false keep it
   const doneTasks = tasks && tasks.filter(task => task.completed);
 
+
   //function to delete a task
   function deleteTask(id) {
     //look through all tasks and find where task.todoId===id if it IS === remove that task
-    const updatedTasks = tasks && tasks.filter(task => task.todoId !== id); //if it return TRUE it keeps it, if false it removes it
+     //if it return TRUE it keeps it, if false it removes it
     //then update TASK STATE
-    setTasks(updatedTasks);
-  }
+    // setTasks(updatedTasks);
 
-  // axios.delete('https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/20')
-  //   .then(response => {
-  //       console.log(response.data);
-  //       setTasks(response.data.tasks);
-  //     })
-  //   .catch(error => {
-  //       console.log("can't delete the task", error)
-  //     })
-
-  function completeTask(id) {
-    //look through all tasks and find where task.todoId===id, 
-    //if it is change completed: true
-    //if it IS then add to updated task state
-    const updatedTasks = tasks && tasks.map(task => {
-      if (task.todoId === id) {
-        task.completed = true;
-      } return task;
-    })
-    setTasks(updatedTasks);
+    axios.delete('https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/18')
+      .then(response => {
+        const updatedTasks = tasks && tasks.filter(task => task.todoId !== id);
+        console.log(response.data);
+        setTasks(updatedTasks);
+      })
+      .then(response => {
+        const updatedDeleteFlag = tasks && tasks.map(task => {
+          if (task.todoId === id) {
+            task.deleted = true;
+          }return task;
+          });
+      })
+      .catch(error => {
+        console.log("can't delete the task", error)
+      })
   }
 
   function addTask(text, dueDate, priority) {
-    //get a copy of the tasks that are aready there
-    //add a new task into this array
-    //update the task state
+    //get a copy of the tasks that are aready there, add a new task into this array, update the task state
     const newTask = {
       text: text,
       completed: false,
@@ -105,9 +100,7 @@ function App() {
       priority: priority,
       // todoId: uuidv4()
     }
-
-    axios
-      .post('https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks', newTask)
+    axios.post('https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks', newTask)
       .then(
         //If the request is successful, get the task id and add it to the new task object
         (response) => {
@@ -121,6 +114,16 @@ function App() {
       .catch(error => {
         console.log('Error adding a task', error)
       })
+  }
+
+  function completeTask(id) {
+    //look through all tasks and find where task.todoId===id, if it is change completed: true, if it IS then add to updated task state
+    const updatedTasks = tasks && tasks.map(task => {
+      if (task.todoId === id) {
+        task.completed = true;
+      } return task;
+    })
+    setTasks(updatedTasks);
   }
 
   return (
