@@ -114,28 +114,22 @@ function App() {
     //look through all tasks and find where task.todoId===id, if it is change completed: true, if it IS then add to updated task state
     const updatedTasks = tasks && tasks.map(task => {
       if (task.todoId === id) {
-        task.completed = true;
+        task.completed = 1;
       } return task;
-    })
+    });
 
-    const updatedTask = tasks.find(task => task.todoId === id);
-    // const updatedTask = {
-    //   text: text,
-    //   completed: false,
-    //   currentDueDate: dueDate,
-    //   priority: priority,
-    //   // todoId: uuidv4()
-    // }
-
-    axios.put(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${id}`, updatedTask)
+    for (let i=0; i<updatedTasks.length; i++) {
+    // const updatedTask = tasks.find(task => task.todoId === id);
+    axios.put(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${updatedTasks[i].todoId}`, updatedTasks[i])
       .then(response => {
-        setTasks(updatedTasks);
         console.log("task checked as complete")
         })
       .catch(error => { 
         console.log("can't update the task", error);
        })
-  }
+    }
+    setTasks(updatedTasks);
+  }  
 
   return (
     <div className="Container">

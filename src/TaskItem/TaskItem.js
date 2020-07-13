@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 //fragemnt is an invisable div
 import './TaskItem.css';
 
@@ -9,8 +9,8 @@ function TaskItem(props) {
         props.completeTask(props.id);
     }
 
-    // const [dueDate, setDueDate] = useState("");
-    // function handleDateChange(event) {setDueDate(event.target.value);}
+    const [dueDate, setDueDate] = useState("");
+    function handleDateChange(event) {setDueDate(event.target.value);}
 
     return (
         <div className={`task-item ${props.priority}`}>

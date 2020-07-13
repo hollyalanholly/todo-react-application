@@ -6,7 +6,7 @@ function Done(props) {
 
         <div className="task-item done-item">
             <div className="row">
-                <div className="col-9 col-md-10">
+                <div className="col-9 col-md-7">
                     <div className={`done-item ${props.priority}`}>
                         <p className="Done_text">{props.text}</p>
                     </div>
@@ -16,7 +16,7 @@ function Done(props) {
                         <p className="Done_text">{props.dueDate}</p>
                     </div>
                 </div> */}
-                <div className="col-2 col-md-2 doneDeleteButtons">
+                <div className="col-2 col-md-3 doneDeleteButtons">
                 <button type="button" className="btn btn-outline-dark">undo</button>
                 <button
                         type="button"

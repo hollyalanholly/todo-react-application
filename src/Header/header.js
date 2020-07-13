@@ -9,7 +9,8 @@ function Header(props) {
     //telling react that some text/date will be inputted and we need to keep track of and use that text/date.
     //calling ("") as there may be nothing written in input TODO box yet
     const [text, setText] = useState("");
-    const [currentDueDate, setCurrentDueDate] = useState("");
+    // const [currentDueDate, setCurrentDueDate] = useState("");
+    const [dueDate, setDueDate] = useState("");
     const [priority, setPriority] = useState("");
 
     //onChange is used so everytime the text input field changes react will update this STATE
@@ -17,16 +18,20 @@ function Header(props) {
         setText(event.target.value);
     }
 
-    function handleDateChange(event) {
-        setCurrentDueDate(event.target.value);
+     function handleDateChange(event) {
+        setDueDate(event.target.value);
     }
+
+    // function handleDateChange(event) {
+    //     setCurrentDueDate(event.target.value);
+    // }
 
     function handlePriority(event) {
         setPriority(event.target.value);
     }
 
     function handleAddTaskClick() {
-        props.addTask(text, currentDueDate, priority);
+        props.addTask(text, dueDate, priority);
     }
 
     
@@ -82,12 +87,12 @@ function Header(props) {
                                 <div className="row">
                                     <div className="col-12 col-md-5">
                                         <input
-                                            id="due-date"
                                             type="date"
                                             className="form-control"
                                             placeholder="Due Date"
                                             onChange={handleDateChange}
-                                            value={currentDueDate} />
+                                            // value={dueDate}
+                                             />
                                     </div>
                                 </div>
                                 <br></br>
