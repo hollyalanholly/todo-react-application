@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 //fragemnt is an invisable div
 import './TaskItem.css';
 
@@ -9,21 +9,21 @@ function TaskItem(props) {
         props.completeTask(props.id);
     }
 
-    const [dueDate, setDueDate] = useState("");
-    function handleDateChange(event) {setDueDate(event.target.value);}
+    // const [dueDate, setDueDate] = useState("");
+    // function handleDateChange(event) {setDueDate(event.target.value);}
 
     return (
         <div className={`task-item ${props.priority}`}>
             <div className="row">
-                <div className="col-12 col-md-8">
+                <div className="col-12 col-md-7">
                     <p>{props.text}</p>
                 </div>
-                <div className="col-12 col-md-2">
-                
-                   <p>{props.currentDueDate}</p>
-                   
+
+                <div className="col-12 col-md-2 date">
+                    <p className = "date">{props.dueDate}</p>
                 </div>
-                <div className="col-12 col-md-2 doneDeleteButtons">
+
+                <div className="col-12 col-md-3 doneDeleteButtons">
                 {/* <button
                         type="button"
                         className="btn btn-outline-dark"
@@ -33,11 +33,11 @@ function TaskItem(props) {
                     {!props.completed &&
                         <button
                             type="button"
-                            className="btn btn-dark"
+                            className="btn btn-outline-dark"
                             onClick={handleDoneClick}> done</button>}
                     <button
                         type="button"
-                        className="btn btn-dark"
+                        className="btn btn-outline-dark"
                         onClick={() => props.deleteTask(props.id)}> delete </button>
                    
                 </div>

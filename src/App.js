@@ -34,6 +34,7 @@ function App() {
           console.log("error fetch data this is the error that request has given", error)
         })
   }, []);
+
   // //trying to get dates to be sorted in order has to be here else it does not sort the original state above.
   tasks && tasks.sort(function (a, b) {
     return new Date(a.dueDate) - new Date(b.dueDate);
@@ -69,26 +70,17 @@ function App() {
   //function to delete a task
   function deleteTask(id) {
     //look through all tasks and find where task.todoId===id if it IS === remove that task
-     //if it return TRUE it keeps it, if false it removes it
+    //if it return TRUE it keeps it, if false it removes it
     //then update TASK STATE
     // setTasks(updatedTasks);
 
-    axios.delete('https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/18')
+    axios.delete(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${id}`)
       .then(response => {
         const updatedTasks = tasks && tasks.filter(task => task.todoId !== id);
         console.log(response.data);
         setTasks(updatedTasks);
       })
-      .then(response => {
-        const updatedDeleteFlag = tasks && tasks.map(task => {
-          if (task.todoId === id) {
-            task.deleted = true;
-          }return task;
-          });
-      })
-      .catch(error => {
-        console.log("can't delete the task", error)
-      })
+      .catch(error => { console.log("can't delete the task", error) })
   }
 
   function addTask(text, dueDate, priority) {
@@ -96,6 +88,7 @@ function App() {
     const newTask = {
       text: text,
       completed: false,
+      deleted: false,
       currentDueDate: dueDate,
       priority: priority,
       // todoId: uuidv4()
@@ -115,6 +108,7 @@ function App() {
         console.log('Error adding a task', error)
       })
   }
+    console.log(tasks);
 
   function completeTask(id) {
     //look through all tasks and find where task.todoId===id, if it is change completed: true, if it IS then add to updated task state
@@ -123,7 +117,24 @@ function App() {
         task.completed = true;
       } return task;
     })
-    setTasks(updatedTasks);
+
+    const updatedTask = tasks.find(task => task.todoId === id);
+    // const updatedTask = {
+    //   text: text,
+    //   completed: false,
+    //   currentDueDate: dueDate,
+    //   priority: priority,
+    //   // todoId: uuidv4()
+    // }
+
+    axios.put(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${id}`, updatedTask)
+      .then(response => {
+        setTasks(updatedTasks);
+        console.log("task checked as complete")
+        })
+      .catch(error => { 
+        console.log("can't update the task", error);
+       })
   }
 
   return (

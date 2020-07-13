@@ -94,7 +94,7 @@ function Header(props) {
                                 <div className="row">
                                     <div className='col-12 col-md-5'>
                                         <select 
-                                        className="custom-select mr-sm-2" 
+                                        className="custom-select md-sm-2" 
                                         id="inlineFormCustomSelect"
                                         onChange={handlePriority}
                                         value={priority}>
