@@ -6,10 +6,10 @@ function NextWeek(props) {
         <div className={`task-item ${props.priority}`}>
             <div className="row">
                 <div className="col-12 col-md-7">
-                    <p>{props.text}</p>
+                    <p><strong>{props.text}</strong></p>
                 </div>
                 <div className="col-12 col-md-2 dateBox">
-                    <p>{props.dueDate} </p>
+                    <p>{new Date(props.dueDate).toDateString()} </p>
                 </div>
                 <div className="col-12 col-md-3 doneDeleteButtons">
                     <button 
