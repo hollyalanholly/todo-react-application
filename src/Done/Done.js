@@ -2,6 +2,12 @@ import React from 'react';
 import './Done.css';
 
 function Done(props) {
+
+    function handleUndoClick() {
+        // console.log('The done button has been clicked!');
+        props.undoTask(props.id);
+    }
+
     return (
 
         <div className="task-item done-item">
@@ -17,7 +23,11 @@ function Done(props) {
                     </div>
                 </div> */}
                 <div className="col-2 col-md-3 doneDeleteButtons">
-                <button type="button" className="btn btn-outline-dark">undo</button>
+                {props.completed &&
+                <button 
+                        type="button" 
+                        className="btn btn-outline-dark"
+                        onClick={handleUndoClick}>undo</button>}
                 <button
                         type="button"
                         className="btn btn-outline-dark"

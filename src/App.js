@@ -131,6 +131,27 @@ function App() {
     setTasks(updatedTasks);
   }  
 
+  function undoTask(id) {
+    //look through all tasks and find where task.todoId===id, if it is change completed: true, if it IS then add to updated task state
+    const updatedTasks_undo = tasks && tasks.map(task => {
+      if (task.todoId === id) {
+        task.completed = 0;
+      } return task;
+    });
+
+    for (let i=0; i<updatedTasks_undo.length; i++) {
+    // const updatedTask = tasks.find(task => task.todoId === id);
+    axios.put(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${updatedTasks_undo[i].todoId}`, updatedTasks_undo[i])
+      .then(response => {
+        console.log("task checked as complete")
+        })
+      .catch(error => { 
+        console.log("can't update the task", error);
+       })
+    }
+    setTasks(updatedTasks_undo);
+  }  
+
   return (
     <div className="Container">
       <div className="App">
@@ -189,6 +210,7 @@ function App() {
           {doneTasks && doneTasks.map((tasks) => {
             return <Done
               deleteTask={deleteTask}
+              undoTask={undoTask}
               key={tasks.text}
               text={tasks.text}
               completed={tasks.completed}
