@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import Bootbox from 'bootbox-react';
 
 import './Header.css';
 
@@ -18,7 +19,7 @@ function Header(props) {
         setText(event.target.value);
     }
 
-     function handleDateChange(event) {
+    function handleDateChange(event) {
         setDueDate(event.target.value);
     }
 
@@ -34,7 +35,23 @@ function Header(props) {
         props.addTask(text, dueDate, priority);
     }
 
-    
+    //This bit of code is for the pop up alert box
+    const [showAlert_add, setShowAlert_add] = useState(false)
+    const handleClose_add = () => {
+        console.log("You tots closed that ALERT man!");
+        return setShowAlert_add(false);
+    }
+    //end of pop up alert box code
+
+    function handleAddClick() {
+        // props.triggerEarthquake()
+        console.log("A new task has been added")
+        setShowAlert_add(true);
+        handleAddTaskClick();
+        
+        // to remove the button from top of screen after pressed
+    }
+
     return (
         <Fragment>
             <header>
@@ -91,18 +108,18 @@ function Header(props) {
                                             className="form-control"
                                             placeholder="Due Date"
                                             onChange={handleDateChange}
-                                            // value={dueDate}
-                                             />
+                                        // value={dueDate}
+                                        />
                                     </div>
                                 </div>
                                 <br></br>
                                 <div className="row">
                                     <div className='col-12 col-md-5'>
-                                        <select 
-                                        className="custom-select md-sm-2" 
-                                        id="inlineFormCustomSelect"
-                                        onChange={handlePriority}
-                                        value={priority}>
+                                        <select
+                                            className="custom-select md-sm-2"
+                                            id="inlineFormCustomSelect"
+                                            onChange={handlePriority}
+                                            value={priority}>
                                             <option defaultValue>Priority...</option>
                                             <option id="high" value="high">High</option>
                                             <option id="medium" value="medium">Medium</option>
@@ -117,10 +134,18 @@ function Header(props) {
                                         <button
                                             type="button"
                                             className="btn btn-secondary btn-sm btn-block"
-                                            onClick={handleAddTaskClick}
+                                            onClick={handleAddClick}
                                         >Add to-do</button>
                                     </div>
                                 </div>
+
+                                <div className="earthquake-alert">
+                                    <Bootbox show={showAlert_add}
+                                        type={"alert"}
+                                        message={"You have added a new task below."}
+                                        onClose={handleClose_add} />
+                                </div>
+
                             </form >
 
                         </div>

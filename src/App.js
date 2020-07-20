@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch, } from 'react-router-dom';
 // import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
@@ -108,7 +109,7 @@ function App() {
         console.log('Error adding a task', error)
       })
   }
-    console.log(tasks);
+  console.log(tasks);
 
   function completeTask(id) {
     //look through all tasks and find where task.todoId===id, if it is change completed: true, if it IS then add to updated task state
@@ -118,18 +119,18 @@ function App() {
       } return task;
     });
 
-    for (let i=0; i<updatedTasks.length; i++) {
-    // const updatedTask = tasks.find(task => task.todoId === id);
-    axios.put(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${updatedTasks[i].todoId}`, updatedTasks[i])
-      .then(response => {
-        console.log("task checked as complete")
+    for (let i = 0; i < updatedTasks.length; i++) {
+      // const updatedTask = tasks.find(task => task.todoId === id);
+      axios.put(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${updatedTasks[i].todoId}`, updatedTasks[i])
+        .then(response => {
+          console.log("task checked as complete")
         })
-      .catch(error => { 
-        console.log("can't update the task", error);
-       })
+        .catch(error => {
+          console.log("can't update the task", error);
+        })
     }
     setTasks(updatedTasks);
-  }  
+  }
 
   function undoTask(id) {
     //look through all tasks and find where task.todoId===id, if it is change completed: true, if it IS then add to updated task state
@@ -139,91 +140,95 @@ function App() {
       } return task;
     });
 
-    for (let i=0; i<updatedTasks_undo.length; i++) {
-    // const updatedTask = tasks.find(task => task.todoId === id);
-    axios.put(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${updatedTasks_undo[i].todoId}`, updatedTasks_undo[i])
-      .then(response => {
-        console.log("task checked as complete")
+    for (let i = 0; i < updatedTasks_undo.length; i++) {
+      // const updatedTask = tasks.find(task => task.todoId === id);
+      axios.put(`https://djlfzi1od5.execute-api.eu-west-2.amazonaws.com/dev/tasks/${updatedTasks_undo[i].todoId}`, updatedTasks_undo[i])
+        .then(response => {
+          console.log("task checked as complete")
         })
-      .catch(error => { 
-        console.log("can't update the task", error);
-       })
+        .catch(error => {
+          console.log("can't update the task", error);
+        })
     }
     setTasks(updatedTasks_undo);
-  }  
+  }
 
   return (
-    <div className="Container">
-      <div className="App">
-        <Header addTask={addTask} />
-        <br></br>
-        <ThisWeekH />
-        <div>
-          {twTasks && twTasks.map((tasks) => {
-            return <TaskItem
-              deleteTask={deleteTask}
-              completeTask={completeTask}
-              key={tasks.text}
-              text={tasks.text}
-              dueDate={tasks.currentDueDate}
-              completed={tasks.completed}
-              priority={tasks.priority}
-              id={tasks.todoId} />
-          })}
-        </div>
-        <br></br>
-        <br></br>
-        <h3>NEXT WEEK's to-do's</h3>
-        <div>
-          {nwTasks && nwTasks.map((tasks) => {
-            return <NextWeek
-              deleteTask={deleteTask}
-              completeTask={completeTask}
-              key={tasks.text}
-              text={tasks.text}
-              dueDate={tasks.currentDueDate}
-              completed={tasks.completed}
-              priority={tasks.priority}
-              id={tasks.todoId} />
-          })}
-        </div>
-        <br></br>
-        <br></br>
-        <AllTodoH />
-        {allActiveTasks && allActiveTasks.map((tasks) => {
-          return <AllTodo
-            deleteTask={deleteTask}
-            completeTask={completeTask}
-            key={tasks.text}
-            text={tasks.text}
-            dueDate={tasks.currentDueDate}
-            completed={tasks.completed}
-            priority={tasks.priority}
-            id={tasks.todoId} />
-        })}
-        <div>
-        </div>
-        <br></br>
-        <br></br>
-        <DoneH />
-        <div>
-          {doneTasks && doneTasks.map((tasks) => {
-            return <Done
-              deleteTask={deleteTask}
-              undoTask={undoTask}
-              key={tasks.text}
-              text={tasks.text}
-              completed={tasks.completed}
-              priority={tasks.priority}
-              id={tasks.todoId} />
-          })}
-        </div>
-        <br></br>
-        <br></br>
-        <Footer />
-      </div>
-    </div>
+    <Router>
+      <div className="Container">
+        <div className="App">
 
+          <Route path="/AllTodo" component={AllTodo} exact />
+
+          <Header addTask={addTask} />
+          <br></br>
+          <ThisWeekH />
+          <div>
+            {twTasks && twTasks.map((tasks) => {
+              return <TaskItem
+                deleteTask={deleteTask}
+                completeTask={completeTask}
+                key={tasks.text}
+                text={tasks.text}
+                dueDate={tasks.currentDueDate}
+                completed={tasks.completed}
+                priority={tasks.priority}
+                id={tasks.todoId} />
+            })}
+          </div>
+          <br></br>
+          <br></br>
+          <h3>NEXT WEEK's to-do's</h3>
+          <div>
+            {nwTasks && nwTasks.map((tasks) => {
+              return <NextWeek
+                deleteTask={deleteTask}
+                completeTask={completeTask}
+                key={tasks.text}
+                text={tasks.text}
+                dueDate={tasks.currentDueDate}
+                completed={tasks.completed}
+                priority={tasks.priority}
+                id={tasks.todoId} />
+            })}
+          </div>
+          <br></br>
+          <br></br>
+          <AllTodoH />
+          {allActiveTasks && allActiveTasks.map((tasks) => {
+            return <AllTodo
+              deleteTask={deleteTask}
+              completeTask={completeTask}
+              key={tasks.text}
+              text={tasks.text}
+              dueDate={tasks.currentDueDate}
+              completed={tasks.completed}
+              priority={tasks.priority}
+              id={tasks.todoId} />
+          })}
+          <div>
+          </div>
+          <br></br>
+          <br></br>
+          <DoneH />
+          <div>
+            {doneTasks && doneTasks.map((tasks) => {
+              return <Done
+                deleteTask={deleteTask}
+                undoTask={undoTask}
+                key={tasks.text}
+                text={tasks.text}
+                completed={tasks.completed}
+                priority={tasks.priority}
+                id={tasks.todoId} />
+            })}
+          </div>
+          <br></br>
+          <br></br>
+          <Footer />
+        </div>
+      </div>
+      </Router>         
   );
 }
 
